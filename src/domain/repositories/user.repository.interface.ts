@@ -1,5 +1,6 @@
-import { User } from "src/infrastructure/entities/user.entity";
+import { UserEntity } from "src/modules/users/user.entity";
+import { UserModel } from "../models/user.model";
 
 export interface UserRepository {
-    create(userData: User): Promise<User>
+    create(userData: UserModel): Promise<UserEntity>
 }

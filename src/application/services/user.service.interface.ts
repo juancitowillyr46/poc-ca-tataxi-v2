@@ -1,5 +1,6 @@
-import { User } from "src/infrastructure/entities/user.entity";
+import { UserModel } from "src/domain/models/user.model";
+import { CreateUserOutput } from "src/usecases/users/user-create.output";
 
 export interface UserService {
-    create(userData: User): Promise<User>;
+    create(userData: UserModel): Promise<CreateUserOutput>;
 }
