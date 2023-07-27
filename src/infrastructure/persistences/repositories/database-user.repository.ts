@@ -14,8 +14,9 @@ export class UserRepositoryImpl implements UserRepository {
     ) {}
 
     async create(userData: UserModel): Promise<UserEntity> {
-        const save = (await this.userRepository.insert(userData)).raw;
-        return save;
+        const save = (await this.userRepository.save(userData));
+        const result = (save);
+        return result;
     }
 
 }

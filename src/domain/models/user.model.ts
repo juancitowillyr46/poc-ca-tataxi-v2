@@ -1,3 +1,4 @@
+import { CreateUserDto } from "src/modules/users/user-create.dto";
 import { UserEntity } from "src/modules/users/user.entity";
 
 export class UserModel {
@@ -8,12 +9,13 @@ export class UserModel {
     email: string;
     name: string;
 
-    public toEntity(userEntity: UserEntity): UserModel {
-        const userModel = new UserModel();
+    public toModel(userEntity: UserEntity): UserModel {
+        let userModel = new UserModel();
         userModel.id = userEntity.id;
         userModel.username = userEntity.username;
         userModel.email = userEntity.email;
         userModel.name = userEntity.name;
         return userModel;
     }
+
 }
