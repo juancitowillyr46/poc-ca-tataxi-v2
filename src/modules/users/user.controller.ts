@@ -2,7 +2,7 @@ import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateUserUsecase } from 'src/usecases/users/user-create.usecase';
 import { CreateUserDto } from './user-create.dto';
-import { UserCreatePresenter } from './user.create.presenter';
+import { UserCreatePresenter } from './user-create.presenter';
 
 @Controller('users')
 export class UserController {
@@ -13,7 +13,7 @@ export class UserController {
   // @ApiBearerAuth()
   // @ApiExtraModels(UserModel)
   @ApiExtraModels(UserCreatePresenter)
-  @ApiTags('users')
+  @ApiTags('Users')
   @Post('create')
   @ApiOperation({ summary: 'Create user' })
   @ApiResponse({ status: 403, description: 'Forbidden.' })

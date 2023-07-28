@@ -20,4 +20,20 @@ export class UserRepositoryImpl implements UserRepository {
         return result;
     }
 
+    async readByUsername(username: string): Promise<UserModel | null> {
+
+        let result = null;
+
+        const command = (await this.userRepository.findOneBy({
+            email: username
+        }));
+
+        if(command) {
+            const userModel = new UserModel();
+            result = userModel.toModel(command);
+        }
+        
+        return result;
+    }
+
 }

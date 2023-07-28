@@ -26,6 +26,7 @@ export class UserModel {
         userModel.username = userEntity.username;
         userModel.email = userEntity.email;
         userModel.fullname = userEntity.fullname;
+        userModel.password = userEntity.password;
         return userModel;
     }
 
