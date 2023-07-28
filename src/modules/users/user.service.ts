@@ -13,11 +13,12 @@ export class UserServiceImpl implements UserService {
   ) {}
 
   async create(userData: UserModel): Promise<CreateUserOutput> {
-    const result = await this.usecase.execute(userData);
+    /*const result = await this.usecase.execute(userData);
     let output: CreateUserOutput = {
       user: userData.toModel(result)
     };
-    return output;
+    return output;*/
+    return null;
   }
 
 }

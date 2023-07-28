@@ -1,11 +1,15 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { UserModel } from "src/domain/models/user.model";
+import { CreateUserInput } from "src/usecases/users/user-create.input";
 
 export class UserCreatePresenter {
     @ApiProperty()
-    username: string;
+    message: string;
 
-    constructor(userModel: UserModel) {
-        this.username = userModel.username;
+    @ApiProperty()
+    done: boolean;
+    
+    constructor(userData: CreateUserInput) {
+        this.message = `El usuario: ${userData.user.username}, se creó satisfactoriamente`;
+        this.done = true;
     }
 }

@@ -1,6 +1,5 @@
+import { UserModel } from "src/domain/models/user.model";
+
 export interface CreateUserInput {
-    name: string;
-    username: string;
-    email: string;
-    password: string;
+    user: UserModel
 }
