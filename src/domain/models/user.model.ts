@@ -6,16 +6,16 @@ import { CreateUserOutput } from "src/usecases/users/user-create.output";
 export class UserModel {
 
     id?: number;
+    fullname: string;
     username: string;
     password: string;
     email: string;
-    name: string;
 
     public toEntity(userModel: UserModel) {
         const entity = new UserEntity();
-        entity.name = userModel.name;
         entity.username = userModel.username;
         entity.email = userModel.email;
+        entity.fullname = userModel.fullname;
         entity.password = userModel.password;
         return entity;
     }
@@ -25,7 +25,7 @@ export class UserModel {
         userModel.id = userEntity.id;
         userModel.username = userEntity.username;
         userModel.email = userEntity.email;
-        userModel.name = userEntity.name;
+        userModel.fullname = userEntity.fullname;
         return userModel;
     }
 
@@ -33,7 +33,7 @@ export class UserModel {
         let userModel = new UserModel();
         userModel.username = input.user.username;
         userModel.email = input.user.email;
-        userModel.name = input.user.name;
+        userModel.fullname = input.user.fullname;
         userModel.password = input.user.password;
         return userModel;
     }

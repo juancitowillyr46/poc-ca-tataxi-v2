@@ -6,9 +6,10 @@ import { UserEntity } from './user.entity';
 
 import { UserRepositoryProvider, USER_REPOSITORY } from './user.repository.provider';
 import { UserServiceProvider, USER_SERVICE } from './user.service.provider';
+import { BcryptModule } from 'src/infrastructure/services/bcrypt/bcrypt.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([UserEntity])],
+  imports: [TypeOrmModule.forFeature([UserEntity]), BcryptModule],
   providers: [
     UserRepositoryProvider,
     UserServiceProvider,

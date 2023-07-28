@@ -9,7 +9,7 @@ export class CreateUserDto {
     @ApiProperty()
     @IsString()
     @IsNotEmpty()
-    name: string;
+    fullname: string;
 
     @ApiProperty()
     @IsString()
@@ -31,7 +31,7 @@ export class CreateUserDto {
         userModel.id = userEntity.id;
         userModel.username = userEntity.username;
         userModel.email = userEntity.email;
-        userModel.name = userEntity.name;
+        userModel.fullname = userEntity.fullname;
         return userModel;
     }
 }
