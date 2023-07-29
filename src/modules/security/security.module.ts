@@ -22,7 +22,6 @@ import { AuthValidateUsecase } from 'src/usecases/auth/auth-validate.usecase';
     AuthValidateUsecase
   ],
   exports: [
-    LoginUsecase,
     AuthValidateUsecase
   ],
   controllers: [SecurityController]
