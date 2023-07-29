@@ -1,4 +1,4 @@
-import { SecurityLoginOutput } from "src/usecases/security/security-login.output";
+import { SecurityLoginOutput } from "src/usecases/login/login-output";
 import { UserModel } from "./user.model";
 
 export class LoginModel {

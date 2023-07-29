@@ -1,13 +1,13 @@
 import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { ApiExtraModels, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SecurityLoginPresenter } from './security-login.presenter';
-import { SecurityLoginUsecase } from 'src/usecases/security/security-login.usecase';
+import { LoginUsecase } from 'src/usecases/login/login.usecase';
 import { SecurityLoginDto } from './security-login.dto';
 
 @Controller('Security')
 export class SecurityController {
   constructor(
-    private readonly loginUsecase: SecurityLoginUsecase
+    private readonly loginUsecase: LoginUsecase
   ) {}
 
   @ApiExtraModels(SecurityLoginPresenter)

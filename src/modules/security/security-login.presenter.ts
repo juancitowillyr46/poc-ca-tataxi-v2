@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { SecurityLoginInput } from "src/usecases/security/security-login.input";
+import { SecurityLoginInput } from "src/usecases/login/login-input";
 
 export class SecurityLoginPresenter {
     @ApiProperty()

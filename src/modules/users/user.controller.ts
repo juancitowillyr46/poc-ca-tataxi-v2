@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiExtraModels, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateUserUsecase } from 'src/usecases/users/user-create.usecase';
 import { CreateUserDto } from './user-create.dto';
 import { UserCreatePresenter } from './user-create.presenter';
+import { JwtAuthGuard } from 'src/infrastructure/guards/jwtAuth.guard';
 
 @Controller('users')
 export class UserController {
@@ -10,13 +11,14 @@ export class UserController {
     private readonly useCreateUser: CreateUserUsecase
   ) {}
 
-  // @ApiBearerAuth()
+  @ApiBearerAuth()
   // @ApiExtraModels(UserModel)
+  @UseGuards(JwtAuthGuard)
   @ApiExtraModels(UserCreatePresenter)
   @ApiTags('Users')
   @Post('create')
   @ApiOperation({ summary: 'Create user' })
-  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  // @ApiResponse({ status: 403, description: 'Forbidden.' })
   async createUser(@Body() createUserDto: CreateUserDto): Promise<UserCreatePresenter> {
     const dto = this.useCreateUser.toInput(createUserDto)
     const result = await this.useCreateUser.execute(dto);

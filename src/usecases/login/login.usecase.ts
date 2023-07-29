@@ -1,11 +1,9 @@
-import { BadRequestException, Inject, Injectable } from "@nestjs/common";
-import { UserModel } from "src/domain/models/user.model";
+import { Inject, Injectable } from "@nestjs/common";
 import { UserRepository } from "src/domain/repositories/user.repository.interface";
-import { CreateUserDto } from "src/modules/users/user-create.dto";
 import { USER_REPOSITORY } from "src/modules/users/user.repository.provider";
 import { BcryptService } from "src/infrastructure/services/bcrypt/bcrypt.service";
-import { SecurityLoginInput } from "./security-login.input";
-import { SecurityLoginOutput } from "./security-login.output";
+import { SecurityLoginInput } from "./login-input";
+import { SecurityLoginOutput } from "./login-output";
 import { SecurityLoginDto } from "src/modules/security/security-login.dto";
 import { LoginModel } from "src/domain/models/login.model";
 import { ExceptionsService } from "src/infrastructure/exceptions/exceptions.service";
@@ -13,7 +11,7 @@ import { JwtTokenService } from "src/infrastructure/services/jwt/jwt.service";
 import { jwtExpiresIn, jwtSecret } from "src/infrastructure/services/jwt/jwt.module";
 
 @Injectable()
-export class SecurityLoginUsecase {
+export class LoginUsecase {
 
     constructor(
         @Inject(USER_REPOSITORY)
