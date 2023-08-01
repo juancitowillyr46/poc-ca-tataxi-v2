@@ -6,12 +6,14 @@ import { BcryptModule } from './infrastructure/services/bcrypt/bcrypt.module';
 import { SecurityModule } from './modules/security/security.module';
 import { JwtStrategy } from './infrastructure/strategies/jwt.strategy';
 import { ExceptionsModule } from './infrastructure/exceptions/exceptions.module';
+import { MessageModule } from './modules/messages/message.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(config),
     SecurityModule,
     UserModule,
+    MessageModule,
     ExceptionsModule
   ],
   providers: [JwtStrategy]

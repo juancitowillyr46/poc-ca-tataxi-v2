@@ -12,13 +12,11 @@ export class UserController {
   ) {}
 
   @ApiBearerAuth()
-  // @ApiExtraModels(UserModel)
   @UseGuards(JwtAuthGuard)
   @ApiExtraModels(UserCreatePresenter)
   @ApiTags('Users')
   @Post('create')
   @ApiOperation({ summary: 'Create user' })
-  // @ApiResponse({ status: 403, description: 'Forbidden.' })
   async createUser(@Body() createUserDto: CreateUserDto): Promise<UserCreatePresenter> {
     const dto = this.useCreateUser.toInput(createUserDto)
     const result = await this.useCreateUser.execute(dto);
