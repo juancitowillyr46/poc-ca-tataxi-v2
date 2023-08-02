@@ -7,6 +7,7 @@ import { AuthValidateUsecase } from 'src/usecases/auth/auth-validate.usecase';
 
 type payloadJwt = {
     username: string
+    id: number
 };
 
 @Injectable()
@@ -27,6 +28,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if(!operation) {
       this.exceptionService.UnauthorizedException({ message: 'User not found' });
     }
-    return { username: payload.username };
+    return { username: payload.username, id: payload.id };
   }
 }

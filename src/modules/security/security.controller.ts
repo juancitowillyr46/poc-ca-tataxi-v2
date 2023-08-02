@@ -4,7 +4,7 @@ import { SecurityLoginPresenter } from './security-login.presenter';
 import { LoginUsecase } from 'src/usecases/login/login.usecase';
 import { SecurityLoginDto } from './security-login.dto';
 
-@Controller('Security')
+@Controller('security')
 export class SecurityController {
   constructor(
     private readonly loginUsecase: LoginUsecase

@@ -27,6 +27,7 @@ export class CreateMessageUsecase {
     toInput(createMessageDto: CreateMessageDto): CreateMessageOutput {
         const model = new MessageModel();
         model.message = createMessageDto.message;
+        model.userId = createMessageDto.userId;
         return {
             message: model
         }

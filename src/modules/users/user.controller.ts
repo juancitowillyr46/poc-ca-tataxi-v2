@@ -11,8 +11,8 @@ export class UserController {
     private readonly useCreateUser: CreateUserUsecase
   ) {}
 
-  @ApiBearerAuth()
-  @UseGuards(JwtAuthGuard)
+  // @ApiBearerAuth()
+  // @UseGuards(JwtAuthGuard)
   @ApiExtraModels(UserCreatePresenter)
   @ApiTags('Users')
   @Post('create')

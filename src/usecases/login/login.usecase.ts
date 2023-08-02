@@ -44,7 +44,8 @@ export class LoginUsecase {
         let loginModel = new LoginModel();
         
         let token = this.jwtTokenService.createToken({
-            username: command.username
+            username: command.username,
+            id: command.id
         }, jwtSecret, jwtExpiresIn);
         
         const result = loginModel.toOutput(command, token);

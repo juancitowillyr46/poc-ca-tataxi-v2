@@ -1,5 +1,6 @@
 export interface IJwtServicePayload {
     username: string;
+    id: number;
   }
   
   export interface IJwtService {
