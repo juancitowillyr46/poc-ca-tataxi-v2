@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { CreateMessageInput } from "src/usecases/messages/message-create.input";
+import { CreateMessageInput } from "src/usecases/messages/create/message-create.input";
 
 export class MessageCreatePresenter {
     @ApiProperty()

@@ -1,7 +1,8 @@
 import { MessageEntity } from "src/modules/messages/message.entity";
 import { UserEntity } from "src/modules/users/user.entity";
-import { CreateMessageInput } from "src/usecases/messages/message-create.input";
-import { CreateMessageOutput } from "src/usecases/messages/message-create.output";
+import { CreateMessageInput } from "src/usecases/messages/create/message-create.input";
+import { CreateMessageOutput } from "src/usecases/messages/create/message-create.output";
+// import { CreateMessageOutput } from "src/usecases/messages/message-create.output";
 
 export class MessageModel {
     id?: number;
