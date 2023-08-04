@@ -18,12 +18,22 @@ export class MessageRepositoryImpl implements MessageRepository {
     ) {}
 
     async getAll(search: SearchFilterMessageDto): Promise<MessageModel[]> {
-        
-        const result = this.messageRepository.findBy({
-            user: {
-                id: search.userId
-            }
-        });
+
+        const queryBuilder = this.messageRepository
+                                                    .createQueryBuilder("messages")
+                                                    .leftJoinAndSelect("messages.user", "user");
+
+        if(search.date) {
+            // Mysql -> BINARY 
+            queryBuilder.where('messages.created_at = :created_at COLLATE NOCASE', { created_at: search.date });
+        }
+
+        if(search.nameUser) {
+            // Mysql -> BINARY
+            queryBuilder.where('user.fullname LIKE :fullname COLLATE NOCASE', { fullname: `%${search.nameUser}%` })
+        }
+
+        const result = queryBuilder.getMany();
 
         const messageData = new MessageModel();
         const lst: MessageModel[] = [];

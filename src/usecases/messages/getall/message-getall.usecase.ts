@@ -17,7 +17,6 @@ export class GetAllMessageUsecase {
     }
 
     async execute(messageData: GetAllMessageInput): Promise<GetAllMessageOutput> {
-        let messageModel = new MessageModel();
         const result: MessageModel[] = await this.messageRepository.getAll(messageData.search);
         return this.toInputArray(result);
     }

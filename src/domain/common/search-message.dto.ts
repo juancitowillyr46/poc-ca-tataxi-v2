@@ -9,7 +9,4 @@ export class SearchFilterMessageDto {
 
     @ApiProperty({ required: false })
     date?: Date;
-
-    @ApiProperty({ required: false })
-    userId?: number;
 }
